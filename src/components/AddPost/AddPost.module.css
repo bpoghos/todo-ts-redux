@@ -1,0 +1,23 @@
+.inputName{
+    padding: 5px 10px;
+    width: 100%;
+    background-color: #ffffff;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0.5px solid #ccc;
+}
+
+.addButton{
+    padding: 5px 20px;
+    background-color: rgb(54, 184, 54);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    margin-left: 12px;
+}
+
+.addButton:hover{
+    cursor: pointer;
+    background-color: rgb(40, 176, 40);
+}
