@@ -1,0 +1,20 @@
+.todoBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoBox button{
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(226, 91, 19);
+    color: #fff;
+    margin-left: 2px;
+}
+
+.todoBox button:hover{
+    cursor: pointer;
+    background-color: rgb(229, 105, 38);
+}
+

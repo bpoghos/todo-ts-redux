@@ -3,7 +3,7 @@
 }
 
 .todo-box {
-  width: 400px;
+  width: 600px;
   padding: 12px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -21,7 +21,11 @@
   justify-content: space-between;
 }
 
+
 .todo-body {
   width: 100%;
-  background-color: aqua;
+}
+.todo-body-header{
+  display: flex;
+  justify-content: space-between;
 }

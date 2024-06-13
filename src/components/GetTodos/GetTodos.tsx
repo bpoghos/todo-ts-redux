@@ -1,28 +1,24 @@
 import { useEffect, useState } from "react"
 import { TodoInterface } from "./GetTodosInterface"
+import { Todo } from "./Todo/Todo"
+import { useSelector } from "react-redux"
+import { RootState } from "../../redux/store"
 
 
 export const GetTodos = () => {
 
-    const [todos, setTodos] = useState<TodoInterface[]>([])
+    const todos = useSelector((state: RootState) => state.todos.todos)
 
-    const getPost = async () => {
-        const data = await fetch(`https://jsonplaceholder.typicode.com/todos`)
-        const res = await data.json()
-        setTodos(res)
-        
-    }
+    
 
-    useEffect(() => {
-        getPost()
-    },[])
+  
 
 
     return(
         <>
             {
                 todos.map((todo: TodoInterface) => {
-                    return <div key={todo.id}>{todo.title}</div>
+                    return <Todo key={todo.id} todo={todo}/>
                 })
             }
         </>
