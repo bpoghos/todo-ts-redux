@@ -1,15 +1,9 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { TodoInterface } from '../../components/GetTodos/GetTodosInterface'
+import { getTodos } from '../thunks/getTodosThunk';
 
 
-const getTodos = createAsyncThunk(
-  'getTodos/thunk', async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/todos')
-    const todos: TodoInterface[] = await res.json()
-    return todos
-  }
-)
 
 interface GetTodosInterface {
   todos: TodoInterface[];
@@ -32,15 +26,13 @@ export const getTodosSlice = createSlice({
       state.loading = true;
       state.error = null;
     });
-    // Handle the fulfilled state
     builder.addCase(getTodos.fulfilled, (state: any, action: PayloadAction<TodoInterface[]>) => {
       state.loading = false;
-      state.data = action.payload;
+      state.todos = action.payload;
     });
-    // Handle the rejected state
     builder.addCase(getTodos.rejected, (state: any, action: any) => {
       state.loading = false;
-      state.error = action.payload as string;
+      state.error = action.error.message;
     })
   }
 })
